@@ -1,7 +1,9 @@
 namespace Subway1;
 
-public interface IRestoran
+public interface IRestaurant
 {
     void AddOrder(List<OrderItem> order);
-    int SumPriceOfOrders();
+   double SumPriceOfOrders();
+
+   void ShowAllOrderOfDay();
 }

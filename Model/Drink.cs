@@ -6,14 +6,19 @@ public class Drink:OrderItem
     // ● flavour (CocaCola, Fanta, IceTea)
     private DrinkFlavour _flavour;
     
-    public Drink( DrinkFlavour flavour) : base(null)
+    public Drink( DrinkFlavour flavour) 
     {
         _flavour = flavour;
-        Price = (double)_flavour;
+        
+    }
+
+    public override double Price()
+    {
+      return  (double)_flavour;
     }
 
     public override string ToString()
     {
-        return $"Drink: {_flavour}, price {Price}";
+        return $"Drink: {_flavour}, price {Price()}";
     }
 }

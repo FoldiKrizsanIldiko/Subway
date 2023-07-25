@@ -1,6 +1,6 @@
 namespace Subway1;
 
-public class Restaurant:IRestoran
+public class Restaurant:IRestaurant
 {
     // Restaurant
     // ● has a name
@@ -24,13 +24,17 @@ public class Restaurant:IRestoran
             OrderItems.Add(item);
         }
 
-        Console.WriteLine($"Your bill is : {order.Sum(item => item.Price)} $cent");
+        Console.WriteLine($"Your bill is : {order.Sum(item => item.Price())} $cent");
     }
 
-    public int SumPriceOfOrders()
+    public double SumPriceOfOrders()
     {
-        
-        return (int)OrderItems.Sum(item => item.Price);
+        return OrderItems.Sum(item => item.Price());
     }
-    
+
+    public void ShowAllOrderOfDay()
+    {
+        Console.WriteLine($"The orders of {Name}: \n");
+        OrderItems.ForEach(e=>Console.WriteLine(e));
+    }
 }

@@ -6,14 +6,20 @@ public class Sandwich:OrderItem
     // ● list of ingredients
     private List<Ingredient_item> _ingredientItems;
 
-    public Sandwich( List<Ingredient_item> ingredientItems) : base(null)
+    public Sandwich( List<Ingredient_item> ingredientItems) 
     {
-        _ingredientItems = ingredientItems;
-        Price = ingredientItems.Sum(item => item.Price);
+       _ingredientItems = ingredientItems;
+     
+    }
+
+    public override double Price()
+    {
+        return _ingredientItems.Sum(item => item.Price);
+        
     }
 
     public override string ToString()
     {
-        return $"Sandwich: {Price}";
+        return $"Sandwich: from {String.Join(", ",_ingredientItems.Select(e=>e.Name))} {Price()}";
     }
 }
